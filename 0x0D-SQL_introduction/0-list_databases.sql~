@@ -1,0 +1,2 @@
+-- Lists all databases on my server
+SELECT name FROM sys.databases;
