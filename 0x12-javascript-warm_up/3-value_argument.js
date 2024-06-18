@@ -1,8 +1,12 @@
 #!/usr/bin/node
 
 const process = require('node:process');
-const Args = process.argv.length - 2;
-if (Args === 0) {
+let argCount = 0;
+while(process.argv[argCount]) {
+  argCount++;
+}
+argCount = argCount - 2;
+if (argCount === 0) {
   console.log('No argument');
 } else {
   console.log(process.argv[2]);
