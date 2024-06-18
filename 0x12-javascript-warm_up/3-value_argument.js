@@ -2,7 +2,7 @@
 
 const process = require('node:process');
 let argCount = 0;
-while(process.argv[argCount]) {
+while (process.argv[argCount]) {
   argCount++;
 }
 argCount = argCount - 2;
