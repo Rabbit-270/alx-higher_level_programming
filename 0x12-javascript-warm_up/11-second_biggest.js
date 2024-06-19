@@ -13,8 +13,6 @@ function sort (a) {
       }
     }
   }
-  console.log(a);
-
   return (a);
 }
 const process = require('node:process');
