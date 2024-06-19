@@ -3,7 +3,7 @@ const FirstSquare = require('./5-square');
 
 class Square extends FirstSquare {
   charPrint (c) {
-    if (!c) {
+    if (c === undefined) {
     /*
      * c is undefined so use X. Call the parent's print method.
      */
