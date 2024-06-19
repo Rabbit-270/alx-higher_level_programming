@@ -11,7 +11,7 @@ if (ARG_COUNT === 0) {
   console.log(0);
 } else {
   const ARRAY = process.argv.slice(2);
-  const sorted_Array = sort(ARRAY);
-  const convertedValue = Number(sorted_Array[sorted_Array.length - 2]);
+  const sortedArray = sort(ARRAY);
+  const convertedValue = Number(sortedArray[sortedArray.length - 2]);
   console.log(convertedValue);
 }
