@@ -6,7 +6,7 @@ import MySQLdb
 from sys import argv
 
 if __name__ == "__main__":
-    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC"
+    query = "SELECT * FROM states ORDER BY states.id ASC"
     Host = "localhost"
     Port = 3306
     U = argv[1]
@@ -18,6 +18,7 @@ if __name__ == "__main__":
     cur.execute(query)
     states = cur.fetchall()
     for state in states:
-        print(state)
+        if state[1].startswith('N'):
+            print(state)
     cur.close()
     conn.close()
