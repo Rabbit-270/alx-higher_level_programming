@@ -22,13 +22,7 @@ if __name__ == "__main__":
     cur.execute(query, (state,))
 
     data = cur.fetchall()
-    index = 0
-    for city in data:
-        if (index == len(data) - 1):
-            print(city[0])
-        else:
-            print(city[0], end=", ")
-        index += 1
 
+    print(", ".join([city[0] for city in data]))
     cur.close()
     conn.close()
