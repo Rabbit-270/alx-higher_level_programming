@@ -13,20 +13,14 @@ if __name__ == "__main__":
     Stte = argv[4]
     Hst = "localhost"
     prt = 3306
-    Injection = False
-    if (State.find(';') == -1):
-        Injection = True
-    # if we get up to this point, it's not an injection.
-    if (Injection is False):
-        conn = MySQLdb.connect(host=Hst, port=prt, user=Usr, passwd=Pss, db=DB)
-        cur = conn.cursor()
+    conn = MySQLdb.connect(host=Hst, port=prt, user=Usr, passwd=Pss, db=DB)
+    cur = conn.cursor()
 
-        query = "SELECT * FROM states WHERE name='{}'".format(Stte)
-        query = query + " ORDER BY states.id ASC"
-        cur.execute(query)
+    query = "SELECT * FROM states WHERE name= %s ORDER BY states.id ASC"
+    cur.execute(query, Stte)
 
-        results = cur.fetchall()
-        for state in results:
-            print(state)
-        cur.close()
-        conn.close()
+    results = cur.fetchall()
+    for state in results:
+        print(state)
+    cur.close()
+    conn.close()
