@@ -13,9 +13,9 @@ if __name__ == "__main__":
     Hst = "localhost"
     prt = 3306
 
-    query = "SELECT cities.name FROM cities "
-    query = query + "WHERE cities.state_id="
-    query = query + "(SELECT states.id FROM states WHERE states.name= %s)"
+    query = "SELECT cities.name FROM states "
+    query = query + "INNER JOIN cities ON states.id = cities.state_id"
+    query = query + " WHERE states.name= %s"
     query = query + " ORDER BY cities.id ASC"
     conn = MySQLdb.connect(host=Hst, port=prt, user=usr, passwd=pss, db=dB)
     cur = conn.cursor()
