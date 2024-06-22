@@ -7,7 +7,7 @@ Base = declarative_base()
 
 
 class State(Base):
-    ''' State class maps to the 
+    ''' State class maps to the
     states table in my database.'''
     __tablename__ = "states"
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
