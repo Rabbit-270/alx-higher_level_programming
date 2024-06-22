@@ -21,7 +21,7 @@ if __name__ == "__main__":
         conn = MySQLdb.connect(host=Hst, port=prt, user=Usr, passwd=Pss, db=DB)
         cur = conn.cursor()
 
-        query = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(Stte)
+        query = "SELECT * FROM states WHERE name='{}'".format(Stte)
         query = query + " ORDER BY states.id ASC"
         cur.execute(query)
 
@@ -30,5 +30,3 @@ if __name__ == "__main__":
             print(state)
         cur.close()
         conn.close()
-    else:
-        print("Error: Incorrect format.")
